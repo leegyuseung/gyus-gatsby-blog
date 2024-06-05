@@ -5,8 +5,8 @@
  */
 
 const path = require(`path`)
-const { createFilePath } = require(`gatsby-source-filesystem`)
 
+/* Setup Import Alias */
 exports.onCreateWebpackConfig = ({ getConfig, actions }) => {
   const output = getConfig().output || {}
   actions.setWebpackConfig({
@@ -17,6 +17,7 @@ exports.onCreateWebpackConfig = ({ getConfig, actions }) => {
         pages: path.resolve(__dirname, "src/pages"),
         images: path.resolve(__dirname, "src/images"),
         utils: path.resolve(__dirname, "src/utils"),
+        hooks: path.resolve(__dirname, "src/hooks"),
       },
     },
   })
