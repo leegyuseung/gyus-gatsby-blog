@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "types": ["@emotion/react/types/css-prop"],
     /* Visit https://aka.ms/tsconfig to read more about this file */
 
     /* Projects */
