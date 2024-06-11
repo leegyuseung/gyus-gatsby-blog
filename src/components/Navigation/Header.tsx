@@ -4,6 +4,10 @@ import { Link } from 'gatsby'
 import NavItem from './NavItem'
 import { Path } from 'components/routes/path'
 
+interface HeaderProps {
+  title: string
+}
+
 const HeaderLayout = styled.header`
   position: fixed;
   z-index: 99999;
@@ -39,12 +43,12 @@ const LogoSpan = styled.span`
   margin-left: 15px;
 `
 
-const Header = () => {
+const Header = ({ title }: HeaderProps) => {
   return (
     <HeaderLayout>
       <LogoWrapper>
         <Logo width={'40px'} height={'40px'} radius={'20px'} />
-        <LogoSpan>TEST</LogoSpan>
+        <LogoSpan>{title}</LogoSpan>
       </LogoWrapper>
       <Nav>
         <Link to={Path.tech}>
@@ -56,7 +60,7 @@ const Header = () => {
         <Link to={Path.project}>
           <NavItem title={'Project'} />
         </Link>
-        <Link to={Path.project}>
+        <Link to={Path.visitor}>
           <NavItem title={'Visitor'} />
         </Link>
       </Nav>

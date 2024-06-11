@@ -3,4 +3,5 @@ export const Path = {
   tech: '/tech',
   diary: '/diary',
   project: '/project',
+  visitor: '/visitor',
 }

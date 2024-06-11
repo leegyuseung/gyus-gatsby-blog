@@ -1,7 +1,7 @@
 import styled from '@emotion/styled'
 import GlobalStyle from 'components/Common/GlobalStyle'
 import Header from 'components/Navigation/Header'
-import { FunctionComponent } from 'react'
+import { graphql } from 'gatsby'
 
 const Container = styled.div`
   display: flex;
@@ -9,13 +9,43 @@ const Container = styled.div`
   height: 100%;
 `
 
-const IndexPage: FunctionComponent = function () {
+type IndexPageProps = {
+  data: {
+    site: {
+      siteMetadata: {
+        title: string
+        description: string
+        author: string
+      }
+    }
+  }
+}
+
+const IndexPage = ({
+  data: {
+    site: {
+      siteMetadata: { title, description, author },
+    },
+  },
+}: IndexPageProps) => {
   return (
     <Container>
       <GlobalStyle />
-      <Header />
+      <Header title={title} />
     </Container>
   )
 }
 
 export default IndexPage
+
+export const metadataQuery = graphql`
+  {
+    site {
+      siteMetadata {
+        title
+        description
+        author
+      }
+    }
+  }
+`

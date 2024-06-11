@@ -9,10 +9,11 @@
  */
 module.exports = {
   siteMetadata: {
-    title: `gyu's blog`,
-    description: `이규승 블로그`,
-    author: `gyu's`,
-    siteUrl: `https://gatsbystarterdefaultsource.gatsbyjs.io/`,
+    title: `Gyu's Blog`,
+    description: `이규승의 블로그`,
+    author: `Gyu's`,
+    // siteUrl: `https://gatsbystarterdefaultsource.gatsbyjs.io/`,
+    siteUrl: `https://gyu-seung.com/`,
   },
   plugins: [
     `gatsby-plugin-sharp`,
@@ -35,19 +36,16 @@ module.exports = {
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
-    // {
-    //   resolve: `gatsby-plugin-manifest`,
-    //   options: {
-    //     name: `gatsby-starter-default`,
-    //     short_name: `starter`,
-    //     start_url: `/`,
-    //     background_color: `#663399`,
-    //     // This will impact how browsers show your PWA/website
-    //     // https://css-tricks.com/meta-theme-color-and-trickery/
-    //     // theme_color: `#663399`,
-    //     display: `minimal-ui`,
-    //     icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
-    //   },
-    // },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        // name: this.siteMetadata.title,
+        // short_name: this.siteMetadata.title,
+        // description: this.siteMetadata.description,
+        // start_url: `/`,
+        // display: `standalone`,
+        icon: `static/favicon1.png`, // This path is relative to the root of the site.
+      },
+    },
   ],
 }
