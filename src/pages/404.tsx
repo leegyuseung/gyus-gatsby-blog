@@ -1,7 +1,6 @@
 import styled from '@emotion/styled'
 import GlobalStyle from 'components/Common/GlobalStyle'
 import Logo from 'components/Common/Logo'
-import { Link } from 'gatsby'
 import React, { FunctionComponent } from 'react'
 
 const NotFoundPageWrapper = styled.div`
