@@ -47,5 +47,12 @@ module.exports = {
         icon: `static/favicon1.png`, // This path is relative to the root of the site.
       },
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/contents`,
+        name: `blog`,
+      },
+    },
   ],
 }
