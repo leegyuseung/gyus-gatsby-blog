@@ -1,4 +1,4 @@
-import { Path } from 'components/routes/path'
+import { Path } from '../../routes/path'
 import { Link } from 'gatsby'
 import { StaticImage } from 'gatsby-plugin-image'
 
