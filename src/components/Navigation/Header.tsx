@@ -1,12 +1,9 @@
+import { graphql, useStaticQuery } from 'gatsby'
+import { Link } from 'gatsby'
+import { Path } from '../../routes/path'
 import styled from '@emotion/styled'
 import Logo from 'components/Common/Logo'
-import { Link } from 'gatsby'
 import NavItem from './NavItem'
-import { Path } from 'components/routes/path'
-
-interface HeaderProps {
-  title: string
-}
 
 const HeaderLayout = styled.header`
   position: fixed;
@@ -43,7 +40,21 @@ const LogoSpan = styled.span`
   margin-left: 15px;
 `
 
-const Header = ({ title }: HeaderProps) => {
+const Header = () => {
+  const data = useStaticQuery(graphql`
+    query {
+      site {
+        siteMetadata {
+          title
+          description
+          author
+        }
+      }
+    }
+  `)
+
+  const { title } = data.site.siteMetadata
+
   return (
     <HeaderLayout>
       <LogoWrapper>

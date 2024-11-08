@@ -1,38 +1,15 @@
-import styled from '@emotion/styled'
-import GlobalStyle from 'components/Common/GlobalStyle'
-import Header from 'components/Navigation/Header'
 import { graphql } from 'gatsby'
+import BaseLayout from '../layout/BaseLayout'
 
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-`
-
-type IndexPageProps = {
-  data: {
-    site: {
-      siteMetadata: {
-        title: string
-        description: string
-        author: string
-      }
-    }
-  }
+const TEST = () => {
+  return <div>TEST</div>
 }
 
-const IndexPage = ({
-  data: {
-    site: {
-      siteMetadata: { title, description, author },
-    },
-  },
-}: IndexPageProps) => {
+const IndexPage = () => {
   return (
-    <Container>
-      <GlobalStyle />
-      <Header title={title} />
-    </Container>
+    <BaseLayout>
+      <TEST />
+    </BaseLayout>
   )
 }
 

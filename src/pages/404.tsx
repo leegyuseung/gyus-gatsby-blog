@@ -1,7 +1,7 @@
-import styled from '@emotion/styled'
-import GlobalStyle from 'components/Common/GlobalStyle'
-import Logo from 'components/Common/Logo'
 import React, { FunctionComponent } from 'react'
+import styled from '@emotion/styled'
+import Logo from 'components/Common/Logo'
+import GlobalStyle from 'components/Common/GlobalStyle'
 
 const NotFoundPageWrapper = styled.div`
   display: flex;
