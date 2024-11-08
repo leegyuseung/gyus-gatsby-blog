@@ -1,6 +1,7 @@
 import styled from '@emotion/styled'
 import Header from 'components/Navigation/Header'
 import GlobalStyle from 'components/Common/GlobalStyle'
+import Footer from 'components/Navigation/Footer'
 
 const Container = styled.div`
   display: flex;
@@ -34,6 +35,7 @@ const BaseLayout = ({ children }: BaseLayoutProps) => {
       <GlobalStyle />
       <Header />
       <Body>{children}</Body>
+      <Footer />
     </Container>
   )
 }
