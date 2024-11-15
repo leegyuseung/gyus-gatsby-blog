@@ -31,8 +31,15 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
+        path: `${__dirname}/contents/`,
+        name: `contents`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/contents/images/`,
         name: `images`,
-        path: `${__dirname}/src/images`,
       },
     },
     `gatsby-transformer-sharp`,
@@ -51,35 +58,17 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-remark-images`,
-      options: {
-        maxWidth: 768,
-        quality: 100,
-        withWebp: true,
-      },
-    },
-    {
-      resolve: `gatsby-remark-copy-linked-files`,
-      options: {},
-    },
-    {
-      resolve: `gatsby-remark-external-links`,
-      options: {
-        target: `_blank`,
-        rel: `nofollow`,
-      },
-    },
-    {
       resolve: `gatsby-plugin-manifest`,
       options: {
         icon: `static/favicon1.png`,
       },
     },
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: `gatsby-plugin-mdx`,
       options: {
-        path: `${__dirname}/contents`,
-        name: `blog`,
+        defaultLayouts: {
+          default: require.resolve('./src/layout/BaseLayout.tsx'),
+        },
       },
     },
   ],
