@@ -1,14 +1,11 @@
 import { graphql } from 'gatsby'
 import BaseLayout from '../layout/BaseLayout'
-
-const TEST = () => {
-  return <div>TEST</div>
-}
+import ListLayout from '../layout/ListLayout'
 
 const IndexPage = () => {
   return (
     <BaseLayout>
-      <TEST />
+      <ListLayout />
     </BaseLayout>
   )
 }
