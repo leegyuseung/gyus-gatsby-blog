@@ -6,8 +6,8 @@ type FooterLayoutProps = {
 
 const Footer = styled.footer`
   width: 100%;
-  padding: 20px 16px;
-  height: 80px;
+  padding: 0px 40px;
+  height: 56px;
 
   background-color: #ffffff;
   box-shadow: 0px 2px 4px 2px rgba(225, 225, 225, 0.15);
