@@ -15,7 +15,7 @@ const HeaderLayout = styled.header`
   justify-content: space-between;
 
   width: 100%;
-  height: 72px;
+  height: 50px;
   background-color: #ffffff;
   box-shadow: 0px 2px 4px 2px rgba(225, 225, 225, 0.15);
 
@@ -38,6 +38,7 @@ const LogoWrapper = styled.div`
 
 const LogoSpan = styled.span`
   margin-left: 15px;
+  font-size: 12px;
 `
 
 const Header = () => {
@@ -58,7 +59,7 @@ const Header = () => {
   return (
     <HeaderLayout>
       <LogoWrapper>
-        <Logo width={'40px'} height={'40px'} radius={'20px'} />
+        <Logo width={'30px'} height={'30px'} radius={'20px'} />
         <LogoSpan>{title}</LogoSpan>
       </LogoWrapper>
       <Nav>

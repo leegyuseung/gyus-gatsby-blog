@@ -8,6 +8,7 @@ const IconWrapper = styled.div``
 const TextWrapper = styled.div`
   color: black;
   margin-left: 10px;
+  font-size: 12px;
 `
 
 const Footer = () => {
@@ -19,7 +20,7 @@ const Footer = () => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <FaGithub size={32} color="#333" />
+          <FaGithub size={30} color="#333" />
         </a>
       </IconWrapper>
       <TextWrapper>Developed by Gyu`s</TextWrapper>

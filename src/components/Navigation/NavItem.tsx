@@ -9,6 +9,11 @@ const Item = styled.span`
   text-decoration-line: none;
   color: #585858;
   font-weight: 600;
+  font-size: 12px;
+
+  &:hover {
+    color: #e61d1d;
+  }
 `
 
 const NavItem = ({ title }: NavItemProps) => {

@@ -20,6 +20,7 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-image`,
     'gatsby-plugin-emotion',
+    // 'gatsby-plugin-helmet',
     {
       resolve: 'gatsby-plugin-typescript',
       options: {
@@ -30,28 +31,44 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `images`,
-        path: `${__dirname}/src/images`,
-      },
-    },
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
-    {
-      resolve: `gatsby-plugin-manifest`,
-      options: {
-        // name: this.siteMetadata.title,
-        // short_name: this.siteMetadata.title,
-        // description: this.siteMetadata.description,
-        // start_url: `/`,
-        // display: `standalone`,
-        icon: `static/favicon1.png`, // This path is relative to the root of the site.
+        path: `${__dirname}/contents/`,
+        name: `contents`,
       },
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/contents`,
-        name: `blog`,
+        path: `${__dirname}/contents/images/`,
+        name: `images`,
+      },
+    },
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+          {
+            resolve: `gatsby-remark-smartypants`,
+            options: {
+              classPrefix: `language-`,
+            },
+          },
+        ],
+      },
+    },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        icon: `static/favicon1.png`,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-mdx`,
+      options: {
+        defaultLayouts: {
+          default: require.resolve('./src/layout/BaseLayout.tsx'),
+        },
       },
     },
   ],
