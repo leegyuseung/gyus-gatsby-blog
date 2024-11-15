@@ -20,6 +20,7 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-image`,
     'gatsby-plugin-emotion',
+    // 'gatsby-plugin-helmet',
     {
       resolve: 'gatsby-plugin-typescript',
       options: {
@@ -37,14 +38,41 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+          {
+            resolve: `gatsby-remark-smartypants`,
+            options: {
+              classPrefix: `language-`,
+            },
+          },
+        ],
+      },
+    },
+    {
+      resolve: `gatsby-remark-images`,
+      options: {
+        maxWidth: 768,
+        quality: 100,
+        withWebp: true,
+      },
+    },
+    {
+      resolve: `gatsby-remark-copy-linked-files`,
+      options: {},
+    },
+    {
+      resolve: `gatsby-remark-external-links`,
+      options: {
+        target: `_blank`,
+        rel: `nofollow`,
+      },
+    },
+    {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        // name: this.siteMetadata.title,
-        // short_name: this.siteMetadata.title,
-        // description: this.siteMetadata.description,
-        // start_url: `/`,
-        // display: `standalone`,
-        icon: `static/favicon1.png`, // This path is relative to the root of the site.
+        icon: `static/favicon1.png`,
       },
     },
     {
