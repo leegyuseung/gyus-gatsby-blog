@@ -23,7 +23,7 @@ const Footer = () => {
           <FaGithub size={30} color="#333" />
         </a>
       </IconWrapper>
-      <TextWrapper>Developed by Gyu`s</TextWrapper>
+      <TextWrapper>Github by Gyu`s</TextWrapper>
     </FooterLayout>
   )
 }
