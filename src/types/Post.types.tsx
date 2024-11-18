@@ -7,14 +7,11 @@ export type Post = {
     summary: string
     date: string
     tags: string[]
+    categories: string[]
     thumbnail: {
       childImageSharp: {
         gatsbyImageData: IGatsbyImageData
       }
     }
   }
-}
-
-export type ListLayoutProps = {
-  posts: Post[]
 }

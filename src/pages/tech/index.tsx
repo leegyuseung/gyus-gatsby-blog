@@ -1,13 +1,13 @@
 import { graphql } from 'gatsby'
-import { IndexPageProps } from 'types/IndexPage.types'
+import { TechPageProps } from 'types/TechPage.types'
 
 import BaseLayout from '../../layout/BaseLayout'
-import ListLayout from '../../layout/ListLayout'
+import TechListLayout from '../../layout/TechListLayout'
 
-const TechPage = ({ data }: IndexPageProps) => {
+const TechPage = ({ data }: TechPageProps) => {
   return (
     <BaseLayout>
-      <ListLayout posts={data.allMdx.edges} />
+      <TechListLayout posts={data.allMdx.edges} />
     </BaseLayout>
   )
 }
@@ -16,7 +16,10 @@ export default TechPage
 
 export const pageQuery = graphql`
   query {
-    allMdx(sort: { fields: frontmatter___date, order: DESC }) {
+    allMdx(
+      filter: { frontmatter: { categories: { in: ["tech"] } } }
+      sort: { fields: frontmatter___date, order: DESC }
+    ) {
       edges {
         node {
           id
