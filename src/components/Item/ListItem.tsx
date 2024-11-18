@@ -1,7 +1,6 @@
-import React from 'react'
 import styled from '@emotion/styled'
-import { GatsbyImage } from 'gatsby-plugin-image'
-import { ListLayoutProps } from 'types/ListLayout.types'
+import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image'
+import { Post } from 'types/ListLayout.types'
 
 const ThumbnailImage = styled(GatsbyImage)`
   width: 200px;
@@ -10,14 +9,6 @@ const ThumbnailImage = styled(GatsbyImage)`
   border-radius: 8px;
   margin-right: 16px;
   flex-shrink: 0;
-`
-
-const ListContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  width: 100%;
-  padding: 20px 0;
 `
 
 const ItemContainer = styled.div`
@@ -34,15 +25,6 @@ const ItemContainer = styled.div`
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     transform: scale(1.01);
   }
-`
-
-const Image = styled.img`
-  width: 200px;
-  height: 150px;
-  object-fit: cover;
-  border-radius: 8px;
-  margin-right: 16px;
-  flex-shrink: 0;
 `
 
 const ContentContainer = styled.div`
@@ -102,40 +84,34 @@ const Date = styled.span`
   font-size: 13px;
 `
 
-const ListLayout = ({ posts }: ListLayoutProps) => {
+const ListItem = ({
+  imageData,
+  post,
+}: {
+  imageData: IGatsbyImageData
+  post: Post
+}) => {
   return (
-    <ListContainer>
-      {posts.map((post, index) => {
-        const imageData =
-          post.node.frontmatter.thumbnail?.childImageSharp?.gatsbyImageData
-
-        return (
-          <ItemContainer key={index}>
-            {imageData && (
-              <ThumbnailImage
-                image={imageData}
-                alt={post.node.frontmatter.title}
-              />
-            )}
-            <ContentContainer>
-              <TopContainer>
-                <Title>{post.node.frontmatter.title}</Title>
-                <Content>{post.node.frontmatter.summary}</Content>
-              </TopContainer>
-              <BottomContainer>
-                <Tags>
-                  {post.node.frontmatter.tags.map((tag, index) => (
-                    <Tag key={index}># {tag}</Tag>
-                  ))}
-                </Tags>
-                <Date>{post.node.frontmatter.date}</Date>
-              </BottomContainer>
-            </ContentContainer>
-          </ItemContainer>
-        )
-      })}
-    </ListContainer>
+    <ItemContainer>
+      {imageData && (
+        <ThumbnailImage image={imageData} alt={post.node.frontmatter.title} />
+      )}
+      <ContentContainer>
+        <TopContainer>
+          <Title>{post.node.frontmatter.title}</Title>
+          <Content>{post.node.frontmatter.summary}</Content>
+        </TopContainer>
+        <BottomContainer>
+          <Tags>
+            {post.node.frontmatter.tags.map((tag, index) => (
+              <Tag key={index}># {tag}</Tag>
+            ))}
+          </Tags>
+          <Date>{post.node.frontmatter.date}</Date>
+        </BottomContainer>
+      </ContentContainer>
+    </ItemContainer>
   )
 }
 
-export default ListLayout
+export default ListItem

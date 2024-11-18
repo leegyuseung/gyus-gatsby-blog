@@ -1,13 +1,12 @@
 import { graphql } from 'gatsby'
 import { IndexPageProps } from 'types/IndexPage.types'
 import BaseLayout from '../layout/BaseLayout'
-import ListLayout from '../layout/ListLayout'
+import MainLayout from '../layout/MainLayout'
 
 const IndexPage = ({ data }: IndexPageProps) => {
-  console.log('test', data.allMdx.edges)
   return (
     <BaseLayout>
-      <ListLayout posts={data.allMdx.edges} />
+      <MainLayout data={data} />
     </BaseLayout>
   )
 }
@@ -16,7 +15,11 @@ export default IndexPage
 
 export const pageQuery = graphql`
   query {
-    allMdx(sort: { fields: frontmatter___date, order: DESC }) {
+    techPosts: allMdx(
+      filter: { frontmatter: { categories: { in: ["tech"] } } }
+      sort: { fields: frontmatter___date, order: DESC }
+      limit: 5 # 최신 5개만 가져오기
+    ) {
       edges {
         node {
           id
@@ -25,13 +28,33 @@ export const pageQuery = graphql`
             summary
             date
             tags
+            categories
             thumbnail {
               childImageSharp {
-                gatsbyImageData(
-                  width: 200
-                  height: 150
-                  formats: [AUTO, WEBP, AVIF]
-                )
+                gatsbyImageData(width: 80, height: 80, placeholder: BLURRED)
+              }
+            }
+          }
+        }
+      }
+    }
+    diaryPosts: allMdx(
+      filter: { frontmatter: { categories: { in: ["diary"] } } }
+      sort: { fields: frontmatter___date, order: DESC }
+      limit: 5 # 최신 5개만 가져오기
+    ) {
+      edges {
+        node {
+          id
+          frontmatter {
+            title
+            summary
+            date
+            tags
+            categories
+            thumbnail {
+              childImageSharp {
+                gatsbyImageData(width: 80, height: 80, placeholder: BLURRED)
               }
             }
           }

@@ -1,7 +1,6 @@
-import { PageProps } from 'gatsby'
 import { Post } from './ListLayout.types'
 
-export type IndexPageData = {
+export type MainPageData = {
   techPosts: {
     edges: { node: Post }[]
   }
@@ -10,4 +9,6 @@ export type IndexPageData = {
   }
 }
 
-export type IndexPageProps = PageProps<IndexPageData>
+export type MainPageProps = {
+  data: MainPageData
+}

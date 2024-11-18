@@ -31,15 +31,29 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/contents/`,
-        name: `contents`,
+        path: `${__dirname}/contents/tech/`,
+        name: `tech`,
       },
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/contents/images/`,
-        name: `images`,
+        path: `${__dirname}/contents/diary/`,
+        name: `diary`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/contents/tech/image/`,
+        name: `tech_image`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/contents/diary/image/`,
+        name: `diary_image`,
       },
     },
     `gatsby-transformer-sharp`,
