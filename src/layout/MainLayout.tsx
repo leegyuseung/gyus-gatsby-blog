@@ -4,10 +4,21 @@ import { GatsbyImage } from 'gatsby-plugin-image'
 import { MainPageProps } from 'types/MainPage.types'
 
 const SectionTitle = styled.h2`
-  font-size: 24px;
-  margin-bottom: 20px;
-  text-align: center;
+  font-size: 22px;
+  margin-bottom: 10px;
+  text-align: start;
   color: #333;
+  border: solid;
+  display: inline-block; /* 텍스트 길이에 맞춰 border 생성 */
+`
+const SubSectionTitle = styled.text`
+  display: flex;
+  justify-content: flex-start; /* 부모 요소 기준으로 좌측 정렬 */
+  width: 100%; /* 필요 시 부모 컨테이너를 채움 */
+  font-size: 16px;
+  padding-bottom: 10px;
+  color: #606060;
+  text-decoration: underline;
 `
 
 const PostList = styled.div`
@@ -19,30 +30,53 @@ const PostList = styled.div`
 
 const PostItem = styled.div`
   display: flex;
-  flex-direction: column; /* 세로 정렬 */
-  align-items: flex-start; /* 왼쪽 정렬 */
-  width: 300px;
-  margin-bottom: 20px;
+  align-items: center;
+  gap: 10px;
   text-align: left; /* 텍스트 왼쪽 정렬 */
-  transition: transform 0.2s ease-in-out;
+  border-radius: 10px;
+  max-height: 55px;
+  max-width: 600px;
+  width: 600px;
+  margin-bottom: 10px;
 
   &:hover {
-    transform: scale(1.05);
+    background-color: #f2f2f2;
   }
 `
 
 const Thumbnail = styled(GatsbyImage)`
-  width: 80px;
-  height: 80px;
+  width: 55px;
+  height: 55px;
   border-radius: 50%;
-  margin-bottom: 10px;
   object-fit: cover;
+  margin-left: 5px;
 `
 
-const Title = styled.h3`
-  font-size: 18px;
-  color: #333;
-  margin: 5px 0;
+const TitleCover = styled.div`
+  max-width: 450px;
+  overflow: hidden;
+`
+
+const DateCover = styled.div`
+  max-width: 100px;
+  overflow: hidden;
+  text-align: right; /* 날짜를 오른쪽 정렬 */
+`
+
+const TechLayOut = styled.div`
+  margin-bottom: 20px;
+`
+
+const Title = styled.text`
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* 최대 줄 수 */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-word; /* 줄 바꿈 허용 */
+  font-size: 16px;
+  color: black;
+  margin-left: 10px;
 `
 
 const Date = styled.p`
@@ -59,11 +93,11 @@ const MainLayout = ({ data }: MainPageProps) => {
       <SectionTitle>Recent Posts</SectionTitle>
       <PostList>
         {/* Tech Posts */}
-        <div>
-          <h3>Tech</h3>
+        <SubSectionTitle>@Tech Posts</SubSectionTitle>
+        <TechLayOut>
           {techPosts.slice(0, 5).map(post => (
-            <PostItem key={post.node.id}>
-              <Link to={`/posts/${post.node.id}`}>
+            <Link to={`/posts/${post.node.id}`}>
+              <PostItem key={post.node.id}>
                 <Thumbnail
                   image={
                     post.node.frontmatter.thumbnail.childImageSharp
@@ -71,16 +105,20 @@ const MainLayout = ({ data }: MainPageProps) => {
                   }
                   alt={post.node.frontmatter.title}
                 />
-              </Link>
-              <Title>{post.node.frontmatter.title}</Title>
-              <Date>{post.node.frontmatter.date}</Date>
-            </PostItem>
+                <TitleCover>
+                  <Title>{post.node.frontmatter.title}</Title>
+                </TitleCover>
+                <DateCover>
+                  <Date>{post.node.frontmatter.date}</Date>
+                </DateCover>
+              </PostItem>
+            </Link>
           ))}
-        </div>
-
+        </TechLayOut>
+        {/* 중앙선 */}
         {/* Diary Posts */}
+        <SubSectionTitle>@Diary Posts</SubSectionTitle>
         <div>
-          <h3>Diary</h3>
           {diaryPosts.slice(0, 5).map(post => (
             <PostItem key={post.node.id}>
               <Link to={`/posts/${post.node.id}`}>
