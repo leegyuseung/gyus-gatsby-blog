@@ -1,15 +1,17 @@
 import { IGatsbyImageData } from 'gatsby-plugin-image'
 
 export type Post = {
-  id: string
-  frontmatter: {
-    title: string
-    summary: string
-    date: string
-    tags: string[]
-    thumbnail: {
-      childImageSharp: {
-        gatsbyImageData: IGatsbyImageData
+  node: {
+    id: string
+    frontmatter: {
+      title: string
+      summary: string
+      date: string
+      tags: string[]
+      thumbnail: {
+        childImageSharp: {
+          gatsbyImageData: IGatsbyImageData
+        }
       }
     }
   }
