@@ -90,10 +90,10 @@ const MainLayout = ({ data }: MainPageProps) => {
 
   return (
     <div>
-      <SectionTitle>Recent Posts</SectionTitle>
+      <SectionTitle>⭐️ Recent Posts</SectionTitle>
       <PostList>
         {/* Tech Posts */}
-        <SubSectionTitle>@Tech Posts</SubSectionTitle>
+        <SubSectionTitle>@Tech</SubSectionTitle>
         <TechLayOut>
           {techPosts.slice(0, 5).map(post => (
             <Link to={`/posts/${post.node.id}`}>
@@ -117,11 +117,11 @@ const MainLayout = ({ data }: MainPageProps) => {
         </TechLayOut>
         {/* 중앙선 */}
         {/* Diary Posts */}
-        <SubSectionTitle>@Diary Posts</SubSectionTitle>
+        <SubSectionTitle>@Diary</SubSectionTitle>
         <div>
           {diaryPosts.slice(0, 5).map(post => (
-            <PostItem key={post.node.id}>
-              <Link to={`/posts/${post.node.id}`}>
+            <Link to={`/posts/${post.node.id}`}>
+              <PostItem key={post.node.id}>
                 <Thumbnail
                   image={
                     post.node.frontmatter.thumbnail.childImageSharp
@@ -129,10 +129,14 @@ const MainLayout = ({ data }: MainPageProps) => {
                   }
                   alt={post.node.frontmatter.title}
                 />
-              </Link>
-              <Title>{post.node.frontmatter.title}</Title>
-              <Date>{post.node.frontmatter.date}</Date>
-            </PostItem>
+                <TitleCover>
+                  <Title>{post.node.frontmatter.title}</Title>
+                </TitleCover>
+                <DateCover>
+                  <Date>{post.node.frontmatter.date}</Date>
+                </DateCover>
+              </PostItem>
+            </Link>
           ))}
         </div>
       </PostList>

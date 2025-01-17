@@ -1,7 +1,8 @@
 import React, { FunctionComponent } from 'react'
 import styled from '@emotion/styled'
-import Logo from 'components/Common/Logo'
 import GlobalStyle from 'components/Common/GlobalStyle'
+import { TiArrowBack } from 'react-icons/ti'
+import { Link } from 'gatsby'
 
 const NotFoundPageWrapper = styled.div`
   display: flex;
@@ -12,12 +13,12 @@ const NotFoundPageWrapper = styled.div`
 `
 
 const NotFoundText = styled.div`
-  font-size: 150px;
-  font-weight: 800;
+  font-size: 100px;
+  font-weight: 600;
 `
 
 const NotFoundDescription = styled.div`
-  font-size: 25px;
+  font-size: 15px;
   text-align: center;
   line-height: 1.3;
 `
@@ -36,7 +37,9 @@ const NotFoundPage: FunctionComponent = () => {
         메인 페이지로 이동하시겠습니까?
       </NotFoundDescription>
       <LogoButtonWrapper>
-        <Logo width={'40px'} height={'40px'} radius={'0px'} />
+        <Link to="/" style={{ color: 'black', textDecoration: 'none' }}>
+          <TiArrowBack size={30} />
+        </Link>
       </LogoButtonWrapper>
     </NotFoundPageWrapper>
   )

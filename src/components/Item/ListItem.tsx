@@ -39,6 +39,12 @@ const Title = styled.h2`
   font-size: 18px;
   margin: 8px 0;
   color: #333;
+  display: -webkit-box; /* 플렉스 박스를 사용한 줄 제한 */
+  -webkit-line-clamp: 2; /* 최대 줄 수를 2줄로 제한 */
+  -webkit-box-orient: vertical; /* 세로 방향으로 박스를 생성 */
+  overflow: hidden; /* 넘치는 텍스트 숨김 */
+  text-overflow: ellipsis; /* 말줄임표(...) 적용 */
+  word-break: break-word; /* 단어 단위로 줄 바꿈 */
 `
 
 const Content = styled.p`
