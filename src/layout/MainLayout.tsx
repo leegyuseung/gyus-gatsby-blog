@@ -8,7 +8,6 @@ const SectionTitle = styled.h2`
   margin-bottom: 10px;
   text-align: start;
   color: #333;
-  border: solid;
   display: inline-block; /* 텍스트 길이에 맞춰 border 생성 */
 `
 const SubSectionTitle = styled.text`

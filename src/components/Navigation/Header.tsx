@@ -72,8 +72,8 @@ const Header = () => {
         <Link to={Path.project}>
           <NavItem title={'Project'} />
         </Link>
-        <Link to={Path.visitor}>
-          <NavItem title={'Visitor'} />
+        <Link to={Path.about}>
+          <NavItem title={'About'} />
         </Link>
       </Nav>
     </HeaderLayout>

@@ -1,7 +1,6 @@
 import React, { FunctionComponent } from 'react'
 import styled from '@emotion/styled'
 import GlobalStyle from 'components/Common/GlobalStyle'
-import { TiArrowBack } from 'react-icons/ti'
 import { Link } from 'gatsby'
 
 const NotFoundPageWrapper = styled.div`
@@ -27,6 +26,23 @@ const LogoButtonWrapper = styled.div`
   margin-top: 25px;
 `
 
+const StyledButton = styled.button`
+  background-color: white;
+  color: black;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 10px 20px;
+  border: 2px solid black;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: black;
+    color: white;
+  }
+`
+
 const NotFoundPage: FunctionComponent = () => {
   return (
     <NotFoundPageWrapper>
@@ -34,11 +50,10 @@ const NotFoundPage: FunctionComponent = () => {
       <NotFoundText>404</NotFoundText>
       <NotFoundDescription>
         찾을 수 없는 페이지입니다. <br />
-        메인 페이지로 이동하시겠습니까?
       </NotFoundDescription>
       <LogoButtonWrapper>
         <Link to="/" style={{ color: 'black', textDecoration: 'none' }}>
-          <TiArrowBack size={30} />
+          <StyledButton>이동하기</StyledButton>
         </Link>
       </LogoButtonWrapper>
     </NotFoundPageWrapper>
