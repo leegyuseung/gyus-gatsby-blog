@@ -1,11 +1,11 @@
 import BaseLayout from '../../layout/BaseLayout'
 
-const VisitorPage = () => {
+const IndexPage = () => {
   return (
     <BaseLayout>
-      <p>VisitorPage</p>
+      <p>준비중...</p>
     </BaseLayout>
   )
 }
 
-export default VisitorPage
+export default IndexPage
