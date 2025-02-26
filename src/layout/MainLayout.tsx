@@ -66,6 +66,8 @@ const TechLayOut = styled.div`
   margin-bottom: 20px;
 `
 
+const DiaryLayOut = styled.div``
+
 const Title = styled.text`
   display: -webkit-box;
   -webkit-line-clamp: 2; /* 최대 줄 수 */
@@ -86,7 +88,6 @@ const Date = styled.p`
 const MainLayout = ({ data }: MainPageProps) => {
   const techPosts = data?.techPosts?.edges || []
   const diaryPosts = data?.diaryPosts?.edges || []
-
   return (
     <div>
       <SectionTitle>⭐️ Recent Posts</SectionTitle>
@@ -94,50 +95,54 @@ const MainLayout = ({ data }: MainPageProps) => {
         {/* Tech Posts */}
         <SubSectionTitle>@Tech</SubSectionTitle>
         <TechLayOut>
-          {techPosts.slice(0, 5).map(post => (
-            <Link to={`/posts/${post.node.id}`}>
-              <PostItem key={post.node.id}>
-                <Thumbnail
-                  image={
-                    post.node.frontmatter.thumbnail.childImageSharp
-                      .gatsbyImageData
-                  }
-                  alt={post.node.frontmatter.title}
-                />
-                <TitleCover>
-                  <Title>{post.node.frontmatter.title}</Title>
-                </TitleCover>
-                <DateCover>
-                  <Date>{post.node.frontmatter.date}</Date>
-                </DateCover>
-              </PostItem>
-            </Link>
-          ))}
+          {techPosts.length > 0
+            ? techPosts.slice(0, 5).map(post => (
+                <Link to={`/posts/${post.node.id}`}>
+                  <PostItem key={post.node.id}>
+                    <Thumbnail
+                      image={
+                        post.node.frontmatter.thumbnail.childImageSharp
+                          .gatsbyImageData
+                      }
+                      alt={post.node.frontmatter.title}
+                    />
+                    <TitleCover>
+                      <Title>{post.node.frontmatter.title}</Title>
+                    </TitleCover>
+                    <DateCover>
+                      <Date>{post.node.frontmatter.date}</Date>
+                    </DateCover>
+                  </PostItem>
+                </Link>
+              ))
+            : 'Tech 게시물이 없습니다 👻'}
         </TechLayOut>
         {/* 중앙선 */}
         {/* Diary Posts */}
         <SubSectionTitle>@Diary</SubSectionTitle>
-        <div>
-          {diaryPosts.slice(0, 5).map(post => (
-            <Link to={`/posts/${post.node.id}`}>
-              <PostItem key={post.node.id}>
-                <Thumbnail
-                  image={
-                    post.node.frontmatter.thumbnail.childImageSharp
-                      .gatsbyImageData
-                  }
-                  alt={post.node.frontmatter.title}
-                />
-                <TitleCover>
-                  <Title>{post.node.frontmatter.title}</Title>
-                </TitleCover>
-                <DateCover>
-                  <Date>{post.node.frontmatter.date}</Date>
-                </DateCover>
-              </PostItem>
-            </Link>
-          ))}
-        </div>
+        <DiaryLayOut>
+          {diaryPosts.length > 0
+            ? diaryPosts.slice(0, 5).map(post => (
+                <Link to={`/posts/${post.node.id}`}>
+                  <PostItem key={post.node.id}>
+                    <Thumbnail
+                      image={
+                        post.node.frontmatter.thumbnail.childImageSharp
+                          .gatsbyImageData
+                      }
+                      alt={post.node.frontmatter.title}
+                    />
+                    <TitleCover>
+                      <Title>{post.node.frontmatter.title}</Title>
+                    </TitleCover>
+                    <DateCover>
+                      <Date>{post.node.frontmatter.date}</Date>
+                    </DateCover>
+                  </PostItem>
+                </Link>
+              ))
+            : 'Diary 게시물이 없습니다 👻'}
+        </DiaryLayOut>
       </PostList>
     </div>
   )
