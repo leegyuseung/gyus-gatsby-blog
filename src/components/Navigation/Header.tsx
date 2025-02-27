@@ -1,5 +1,4 @@
 import { graphql, useStaticQuery } from 'gatsby'
-import { Link } from 'gatsby'
 import { Path } from '../../routes/path'
 import styled from '@emotion/styled'
 import Logo from 'components/Common/Logo'
