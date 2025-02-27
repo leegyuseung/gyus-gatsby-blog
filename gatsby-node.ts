@@ -7,7 +7,10 @@ import path from 'path'
 import { GatsbyNode } from 'gatsby'
 
 /* Setup Import Alias */
-export const onCreateWebpackConfig = ({ getConfig, actions }) => {
+export const onCreateWebpackConfig: GatsbyNode['onCreateWebpackConfig'] = ({
+  getConfig,
+  actions,
+}) => {
   const output = getConfig().output || {}
   actions.setWebpackConfig({
     output,
