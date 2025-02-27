@@ -97,7 +97,7 @@ const MainLayout = ({ data }: MainPageProps) => {
         <TechLayOut>
           {techPosts.length > 0
             ? techPosts.slice(0, 5).map(post => (
-                <Link to={`/posts/${post.node.id}`}>
+                <Link to={`/posts/${post.node.frontmatter.slug}`}>
                   <PostItem key={post.node.id}>
                     <Thumbnail
                       image={
@@ -123,7 +123,7 @@ const MainLayout = ({ data }: MainPageProps) => {
         <DiaryLayOut>
           {diaryPosts.length > 0
             ? diaryPosts.slice(0, 5).map(post => (
-                <Link to={`/posts/${post.node.id}`}>
+                <Link to={`/posts/${post.node.frontmatter.slug}`}>
                   <PostItem key={post.node.id}>
                     <Thumbnail
                       image={

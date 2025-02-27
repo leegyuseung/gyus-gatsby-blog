@@ -17,7 +17,7 @@ export const pageQuery = graphql`
   query {
     techPosts: allMdx(
       filter: { frontmatter: { categories: { in: ["tech"] } } }
-      sort: { fields: frontmatter___date, order: DESC }
+      sort: { frontmatter: { date: DESC } }
       limit: 5 # 최신 5개만 가져오기
     ) {
       edges {
@@ -29,6 +29,7 @@ export const pageQuery = graphql`
             date
             tags
             categories
+            slug
             thumbnail {
               childImageSharp {
                 gatsbyImageData(width: 80, height: 80, placeholder: BLURRED)
@@ -40,7 +41,7 @@ export const pageQuery = graphql`
     }
     diaryPosts: allMdx(
       filter: { frontmatter: { categories: { in: ["diary"] } } }
-      sort: { fields: frontmatter___date, order: DESC }
+      sort: { frontmatter: { date: DESC } }
       limit: 5 # 최신 5개만 가져오기
     ) {
       edges {
@@ -52,6 +53,7 @@ export const pageQuery = graphql`
             date
             tags
             categories
+            slug
             thumbnail {
               childImageSharp {
                 gatsbyImageData(width: 80, height: 80, placeholder: BLURRED)

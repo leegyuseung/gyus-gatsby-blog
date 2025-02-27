@@ -7,7 +7,7 @@ import path from 'path'
 import { GatsbyNode } from 'gatsby'
 
 /* Setup Import Alias */
-exports.onCreateWebpackConfig = ({ getConfig, actions }) => {
+export const onCreateWebpackConfig = ({ getConfig, actions }) => {
   const output = getConfig().output || {}
   actions.setWebpackConfig({
     output,
@@ -52,9 +52,11 @@ export const createPages: GatsbyNode['createPages'] = async ({
     throw result.errors
   }
 
-  const posts = result.data.allMdx.edges
+  const posts = result.data as {
+    allMdx: { edges: { node: { id: string; frontmatter: { slug: string } } }[] }
+  }
 
-  posts.forEach(({ node }) => {
+  posts.allMdx.edges.forEach(({ node }) => {
     createPage({
       path: `/posts/${node.frontmatter.slug}`,
       component: postTemplate,
