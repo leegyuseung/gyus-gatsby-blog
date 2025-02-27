@@ -126,8 +126,7 @@
     "src/pages/page-2.js",
     "src/pages/index.js",
     "src/pages/404.js",
-    "src/templates/using-dsg.js",
-    "gatsby-node.ts"
+    "src/templates/using-dsg.js"
   ],
   "exclude": ["node_modules"]
 }
