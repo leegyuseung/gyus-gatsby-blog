@@ -3,14 +3,10 @@
  *
  * See: https://www.gatsbyjs.com/docs/reference/config-files/gatsby-node/
  */
-import path from 'path'
-import { GatsbyNode } from 'gatsby'
+const path = require('path')
 
 /* Setup Import Alias */
-export const onCreateWebpackConfig: GatsbyNode['onCreateWebpackConfig'] = ({
-  getConfig,
-  actions,
-}) => {
+exports.onCreateWebpackConfig = ({ getConfig, actions }) => {
   const output = getConfig().output || {}
   actions.setWebpackConfig({
     output,
@@ -29,12 +25,18 @@ export const onCreateWebpackConfig: GatsbyNode['onCreateWebpackConfig'] = ({
 /**
  * @type {import('gatsby').GatsbyNode['createPages']}
  */
-export const createPages: GatsbyNode['createPages'] = async ({
-  graphql,
-  actions,
-}) => {
+exports.onCreateNode = ({ node, getNode, actions }) => {
+  const { createNodeField } = actions
+
+  if (node.internal.type === `MarkdownRemark`) {
+    const slug = createFilePath({ node, getNode })
+
+    createNodeField({ node, name: 'slug', value: slug })
+  }
+}
+
+exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
-  const postTemplate = path.resolve('src/templates/postTemplate.tsx')
 
   const result = await graphql(`
     query {
@@ -55,14 +57,17 @@ export const createPages: GatsbyNode['createPages'] = async ({
     throw result.errors
   }
 
-  const posts = result.data as {
-    allMdx: { edges: { node: { id: string; frontmatter: { slug: string } } }[] }
-  }
+  const PostTemplateComponent = path.resolve(
+    __dirname,
+    'src/templates/postTemplate.tsx',
+  )
+
+  const posts = result.data
 
   posts.allMdx.edges.forEach(({ node }) => {
     createPage({
       path: `/posts/${node.frontmatter.slug}`,
-      component: postTemplate,
+      component: PostTemplateComponent,
       context: {
         id: node.id,
       },
