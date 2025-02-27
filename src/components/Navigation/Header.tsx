@@ -63,18 +63,10 @@ const Header = () => {
         <LogoSpan>{title}</LogoSpan>
       </LogoWrapper>
       <Nav>
-        <Link to={Path.tech}>
-          <NavItem title={'Tech'} />
-        </Link>
-        <Link to={Path.diary}>
-          <NavItem title={'Diary'} />
-        </Link>
-        <Link to={Path.project}>
-          <NavItem title={'Project'} />
-        </Link>
-        <Link to={Path.about}>
-          <NavItem title={'About'} />
-        </Link>
+        <NavItem path={Path.tech} title={'Tech'} readonly={false} />
+        <NavItem path={Path.diary} title={'Diary'} readonly={false} />
+        <NavItem path={Path.project} title={'Project'} readonly={true} />
+        <NavItem path={Path.about} title={'About'} readonly={true} />
       </Nav>
     </HeaderLayout>
   )
