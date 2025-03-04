@@ -28,8 +28,8 @@ const Nav = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  flex-wrap: wrap; // 공간 부족 시 줄바꿈
 `
-
 const LogoWrapper = styled.div`
   display: flex;
   align-items: center;

@@ -10,6 +10,7 @@ const SectionTitle = styled.h2`
   color: #333;
   display: inline-block; /* 텍스트 길이에 맞춰 border 생성 */
 `
+
 const SubSectionTitle = styled.text`
   display: flex;
   justify-content: flex-start; /* 부모 요소 기준으로 좌측 정렬 */
