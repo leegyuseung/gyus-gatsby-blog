@@ -17,5 +17,7 @@ export type Post = {
 }
 
 export type ListLayoutProps = {
-  posts: Post[]
+  posts: {
+    edges: { node: Post }[]
+  }
 }

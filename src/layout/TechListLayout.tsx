@@ -14,11 +14,11 @@ const ListContainer = styled.div`
 const ListLayout = ({ posts }: ListLayoutProps) => {
   return (
     <ListContainer>
-      {posts.map((post, index) => {
+      {posts.edges.map((post, index) => {
         const imageData =
           post.node.frontmatter.thumbnail?.childImageSharp?.gatsbyImageData
 
-        return <ListItem imageData={imageData} key={index} post={post} />
+        return <ListItem imageData={imageData} key={index} post={post.node} />
       })}
     </ListContainer>
   )

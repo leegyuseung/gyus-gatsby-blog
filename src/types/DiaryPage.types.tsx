@@ -11,6 +11,7 @@ export type DiaryPageProps = PageProps<{
           summary: string
           date: string
           tags: string[]
+          slug: string
           thumbnail: {
             childImageSharp: {
               gatsbyImageData: IGatsbyImageData

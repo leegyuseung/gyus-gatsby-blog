@@ -1,13 +1,12 @@
 import { graphql } from 'gatsby'
 import { TechPageProps } from 'types/TechPage.types'
-
 import BaseLayout from '../../layout/BaseLayout'
 import TechListLayout from '../../layout/TechListLayout'
 
 const TechPage = ({ data }: TechPageProps) => {
   return (
     <BaseLayout>
-      <TechListLayout posts={data.allMdx.edges} />
+      <TechListLayout posts={data.allMdx} />
     </BaseLayout>
   )
 }
@@ -18,7 +17,7 @@ export const pageQuery = graphql`
   query {
     allMdx(
       filter: { frontmatter: { categories: { in: ["tech"] } } }
-      sort: { fields: frontmatter___date, order: DESC }
+      sort: { frontmatter: { date: DESC } }
     ) {
       edges {
         node {
@@ -28,6 +27,7 @@ export const pageQuery = graphql`
             summary
             date
             tags
+            slug
             thumbnail {
               childImageSharp {
                 gatsbyImageData(

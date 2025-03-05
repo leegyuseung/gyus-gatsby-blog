@@ -14,11 +14,11 @@ const DiaryContainer = styled.div`
 const DiaryListLayout = ({ posts }: ListLayoutProps) => {
   return (
     <DiaryContainer>
-      {posts.map((post, index) => {
+      {posts.edges.map((post, index) => {
         const imageData =
           post.node.frontmatter.thumbnail?.childImageSharp?.gatsbyImageData
 
-        return <ListItem imageData={imageData} key={index} post={post} />
+        return <ListItem imageData={imageData} key={index} post={post.node} />
       })}
     </DiaryContainer>
   )

@@ -100,20 +100,20 @@ const ListItem = ({
   return (
     <ItemContainer>
       {imageData && (
-        <ThumbnailImage image={imageData} alt={post.node.frontmatter.title} />
+        <ThumbnailImage image={imageData} alt={post.frontmatter?.title} />
       )}
       <ContentContainer>
         <TopContainer>
-          <Title>{post.node.frontmatter.title}</Title>
-          <Content>{post.node.frontmatter.summary}</Content>
+          <Title>{post.frontmatter?.title}</Title>
+          <Content>{post.frontmatter?.summary}</Content>
         </TopContainer>
         <BottomContainer>
           <Tags>
-            {post.node.frontmatter.tags.map((tag, index) => (
+            {post.frontmatter?.tags.map((tag, index) => (
               <Tag key={index}># {tag}</Tag>
             ))}
           </Tags>
-          <Date>{post.node.frontmatter.date}</Date>
+          <Date>{post.frontmatter?.date}</Date>
         </BottomContainer>
       </ContentContainer>
     </ItemContainer>

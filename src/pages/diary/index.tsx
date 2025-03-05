@@ -7,7 +7,7 @@ import DiaryListLayout from '../../layout/DiaryListLayout'
 const DiaryPage = ({ data }: DiaryPageProps) => {
   return (
     <BaseLayout>
-      <DiaryListLayout posts={data.allMdx.edges} />
+      <DiaryListLayout posts={data.allMdx} />
     </BaseLayout>
   )
 }
@@ -16,7 +16,7 @@ export const pageQuery = graphql`
   query {
     allMdx(
       filter: { frontmatter: { categories: { in: ["diary"] } } }
-      sort: { fields: frontmatter___date, order: DESC }
+      sort: { frontmatter: { date: DESC } }
     ) {
       edges {
         node {
@@ -26,6 +26,7 @@ export const pageQuery = graphql`
             summary
             date
             tags
+            slug
             thumbnail {
               childImageSharp {
                 gatsbyImageData(
