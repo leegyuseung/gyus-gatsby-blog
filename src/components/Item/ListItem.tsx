@@ -1,6 +1,7 @@
 import styled from '@emotion/styled'
 import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image'
 import { Post } from 'types/ListLayout.types'
+import { Link } from 'gatsby'
 
 const ThumbnailImage = styled(GatsbyImage)`
   width: 200px;
@@ -16,14 +17,11 @@ const ItemContainer = styled.div`
   flex-direction: row;
   align-items: flex-start;
   padding: 24px 16px;
-  border: 1px solid #e0e0e0;
-  border-radius: 8px;
-  transition: box-shadow 0.3s ease-in-out transform 0.3s ease-in-out;
   min-height: 180px;
+  transition: background-color 0.3s ease-in-out;
 
   &:hover {
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    transform: scale(1.01);
+    background-color: #c5ccc82a; /* ✅ 연한 회색 배경 */
   }
 `
 
@@ -102,20 +100,22 @@ const ListItem = ({
       {imageData && (
         <ThumbnailImage image={imageData} alt={post.frontmatter?.title} />
       )}
-      <ContentContainer>
-        <TopContainer>
-          <Title>{post.frontmatter?.title}</Title>
-          <Content>{post.frontmatter?.summary}</Content>
-        </TopContainer>
-        <BottomContainer>
-          <Tags>
-            {post.frontmatter?.tags.map((tag, index) => (
-              <Tag key={index}># {tag}</Tag>
-            ))}
-          </Tags>
-          <Date>{post.frontmatter?.date}</Date>
-        </BottomContainer>
-      </ContentContainer>
+      <Link to={`/posts/${post.frontmatter?.slug}`}>
+        <ContentContainer>
+          <TopContainer>
+            <Title>{post.frontmatter?.title}</Title>
+            <Content>{post.frontmatter?.summary}</Content>
+          </TopContainer>
+          <BottomContainer>
+            <Tags>
+              {post.frontmatter?.tags.map((tag, index) => (
+                <Tag key={index}># {tag}</Tag>
+              ))}
+            </Tags>
+            <Date>{post.frontmatter?.date}</Date>
+          </BottomContainer>
+        </ContentContainer>
+      </Link>
     </ItemContainer>
   )
 }
