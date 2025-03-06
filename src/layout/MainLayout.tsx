@@ -5,10 +5,34 @@ import { GatsbyImage } from 'gatsby-plugin-image'
 import { MainPageProps } from 'types/MainPage.types'
 
 const SectionTitle = styled.h2`
+  position: relative; /* 가상 요소 위치 기준 */
   font-size: 30px;
   text-align: start;
   color: #262a2d;
   display: inline-block; /* 텍스트 길이에 맞춰 border 생성 */
+
+  /* 🔥 밑줄 애니메이션 */
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -4px; /* ✅ 글자 아래 여백 조절 */
+    width: 20%;
+    height: 3px;
+    background-color: #e61d1daf;
+    transform: scaleX(0); /* 처음에는 안 보이게 */
+    transform-origin: left; /* 왼쪽에서 시작 */
+    animation: underlineAppear 0.6s ease-in-out forwards;
+  }
+
+  @keyframes underlineAppear {
+    from {
+      transform: scaleX(0);
+    }
+    to {
+      transform: scaleX(1);
+    }
+  }
 `
 
 const ContentContainer = styled.div`
@@ -52,12 +76,6 @@ const Divider = styled.div`
   width: 100%;
   height: 1px;
   background-color: #919497;
-`
-
-const TitleDivider = styled.div`
-  width: 100%;
-  height: 1px;
-  background-color: #262a2d;
 `
 
 const Title = styled.h2`
@@ -129,7 +147,6 @@ const MainLayout = ({ data }: MainPageProps) => {
   return (
     <MainContainer>
       <SectionTitle># Recent Posts</SectionTitle>
-      <TitleDivider />
       {techPosts.length > 0
         ? techPosts.slice(0, 3).map(post => (
             <>
