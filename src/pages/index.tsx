@@ -32,7 +32,11 @@ export const pageQuery = graphql`
             slug
             thumbnail {
               childImageSharp {
-                gatsbyImageData(width: 80, height: 80, placeholder: BLURRED)
+                gatsbyImageData(
+                  width: 200
+                  height: 150
+                  formats: [AUTO, WEBP, AVIF]
+                )
               }
             }
           }
@@ -56,7 +60,11 @@ export const pageQuery = graphql`
             slug
             thumbnail {
               childImageSharp {
-                gatsbyImageData(width: 80, height: 80, placeholder: BLURRED)
+                gatsbyImageData(
+                  width: 200
+                  height: 150
+                  formats: [AUTO, WEBP, AVIF]
+                )
               }
             }
           }

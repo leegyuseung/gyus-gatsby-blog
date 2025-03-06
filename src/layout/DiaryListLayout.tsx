@@ -22,26 +22,20 @@ const TitleDivider = styled.div`
   background-color: #262a2d;
 `
 
-const Divider = styled.div`
-  width: 100%;
-  height: 1px;
-  background-color: #919497;
-  margin: 5px 0;
+const DiaryLayOut = styled.div`
+  width: 100%; /* 너비를 꽉 차게 설정 */
 `
+
 const DiaryListLayout = ({ posts }: ListLayoutProps) => {
   return (
     <DiaryContainer>
       <SectionTitle># Diary</SectionTitle>
       <TitleDivider />
       {posts.edges.map((post, index) => {
-        const imageData =
-          post.node.frontmatter.thumbnail?.childImageSharp?.gatsbyImageData
-
         return (
-          <>
-            <ListItem imageData={imageData} key={index} post={post.node} />
-            <Divider />
-          </>
+          <DiaryLayOut>
+            <ListItem key={index} post={post.node} />
+          </DiaryLayOut>
         )
       })}
     </DiaryContainer>

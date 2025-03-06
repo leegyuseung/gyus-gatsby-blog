@@ -22,11 +22,8 @@ const TitleDivider = styled.div`
   background-color: #262a2d;
 `
 
-const Divider = styled.div`
-  width: 100%;
-  height: 1px;
-  background-color: #919497;
-  margin: 5px 0;
+const TechLayOut = styled.div`
+  width: 100%; /* 너비를 꽉 차게 설정 */
 `
 
 const ListLayout = ({ posts }: ListLayoutProps) => {
@@ -35,14 +32,10 @@ const ListLayout = ({ posts }: ListLayoutProps) => {
       <SectionTitle># Tech</SectionTitle>
       <TitleDivider />
       {posts.edges.map((post, index) => {
-        const imageData =
-          post.node.frontmatter.thumbnail?.childImageSharp?.gatsbyImageData
-
         return (
-          <>
-            <ListItem imageData={imageData} key={index} post={post.node} />
-            <Divider />
-          </>
+          <TechLayOut>
+            <ListItem key={index} post={post.node} />
+          </TechLayOut>
         )
       })}
     </ListContainer>

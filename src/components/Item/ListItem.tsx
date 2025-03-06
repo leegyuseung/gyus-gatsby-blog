@@ -1,5 +1,6 @@
+import React from 'react'
 import styled from '@emotion/styled'
-import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image'
+import { GatsbyImage } from 'gatsby-plugin-image'
 import { Post } from 'types/ListLayout.types'
 import { Link } from 'gatsby'
 
@@ -16,7 +17,6 @@ const ItemContainer = styled.div`
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  padding: 24px 16px;
   min-height: 180px;
   transition: background-color 0.3s ease-in-out;
 
@@ -88,35 +88,40 @@ const Date = styled.span`
   font-size: 13px;
 `
 
-const ListItem = ({
-  imageData,
-  post,
-}: {
-  imageData: IGatsbyImageData
-  post: Post
-}) => {
+const Divider = styled.div`
+  width: 100%;
+  height: 1px;
+  background-color: #919497;
+  margin: 5px 0;
+`
+const ListItem = ({ post }: { post: Post }) => {
   return (
-    <ItemContainer>
-      {imageData && (
-        <ThumbnailImage image={imageData} alt={post.frontmatter?.title} />
-      )}
+    <>
       <Link to={`/posts/${post.frontmatter?.slug}`}>
-        <ContentContainer>
-          <TopContainer>
-            <Title>{post.frontmatter?.title}</Title>
-            <Content>{post.frontmatter?.summary}</Content>
-          </TopContainer>
-          <BottomContainer>
-            <Tags>
-              {post.frontmatter?.tags.map((tag, index) => (
-                <Tag key={index}># {tag}</Tag>
-              ))}
-            </Tags>
-            <Date>{post.frontmatter?.date}</Date>
-          </BottomContainer>
-        </ContentContainer>
+        <ItemContainer>
+          <ThumbnailImage
+            image={post.frontmatter?.thumbnail.childImageSharp.gatsbyImageData}
+            alt={post.frontmatter?.title}
+          />
+
+          <ContentContainer>
+            <TopContainer>
+              <Title>{post.frontmatter?.title}</Title>
+              <Content>{post.frontmatter?.summary}</Content>
+            </TopContainer>
+            <BottomContainer>
+              <Tags>
+                {post.frontmatter?.tags.map((tag, index) => (
+                  <Tag key={index}># {tag}</Tag>
+                ))}
+              </Tags>
+              <Date>{post.frontmatter?.date}</Date>
+            </BottomContainer>
+          </ContentContainer>
+        </ItemContainer>
       </Link>
-    </ItemContainer>
+      <Divider />
+    </>
   )
 }
 

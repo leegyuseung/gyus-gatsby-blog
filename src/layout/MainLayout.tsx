@@ -1,4 +1,5 @@
 import styled from '@emotion/styled'
+import React from 'react'
 import { Link } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
 import { MainPageProps } from 'types/MainPage.types'
@@ -8,14 +9,6 @@ const SectionTitle = styled.h2`
   text-align: start;
   color: #262a2d;
   display: inline-block; /* 텍스트 길이에 맞춰 border 생성 */
-`
-
-const PostList = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: stretch; /* stretch로 변경 */
-  padding: 20px;
-  width: 100%;
 `
 
 const ContentContainer = styled.div`
@@ -39,7 +32,6 @@ const ItemContainer = styled.div`
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  padding: 24px 16px;
   min-height: 180px;
   transition: background-color 0.3s ease-in-out;
 
@@ -123,7 +115,7 @@ const Tag = styled.span`
   border-radius: 8px;
 `
 
-const Main = styled.div`
+const MainContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -136,14 +128,13 @@ const MainLayout = ({ data }: MainPageProps) => {
   const diaryPosts = data?.diaryPosts?.edges || []
 
   return (
-    <Main>
+    <MainContainer>
       <SectionTitle># Recent Posts</SectionTitle>
       <TitleDivider />
-      <PostList>
-        {/* Tech Po sts */}
-        <TechLayOut>
-          {techPosts.length > 0
-            ? techPosts.slice(0, 3).map(post => (
+      {techPosts.length > 0
+        ? techPosts.slice(0, 3).map(post => (
+            <>
+              <TechLayOut>
                 <Link to={`/posts/${post.node.frontmatter.slug}`}>
                   <ItemContainer>
                     <ThumbnailImage
@@ -161,22 +152,24 @@ const MainLayout = ({ data }: MainPageProps) => {
                       <BottomContainer>
                         <Tags>
                           {post.node.frontmatter.tags.map(tag => (
-                            <Tag key={tag}>#{tag}</Tag>
+                            <Tag key={tag}># {tag}</Tag>
                           ))}
                         </Tags>
                         <Date>{post.node.frontmatter.date}</Date>
                       </BottomContainer>
                     </ContentContainer>
                   </ItemContainer>
-                  <Divider />
                 </Link>
-              ))
-            : '게시물이 없습니다 👻'}
-        </TechLayOut>
-        {/* Diary Posts */}
-        <DiaryLayOut>
-          {diaryPosts.length > 0
-            ? diaryPosts.slice(0, 3).map(post => (
+                <Divider />
+              </TechLayOut>
+            </>
+          ))
+        : '게시물이 없습니다 👻'}
+      {/* Diary Posts */}
+      <DiaryLayOut>
+        {diaryPosts.length > 0
+          ? diaryPosts.slice(0, 3).map(post => (
+              <>
                 <Link to={`/posts/${post.node.frontmatter.slug}`}>
                   <ItemContainer>
                     <ThumbnailImage
@@ -194,20 +187,20 @@ const MainLayout = ({ data }: MainPageProps) => {
                       <BottomContainer>
                         <Tags>
                           {post.node.frontmatter.tags.map(tag => (
-                            <Tag key={tag}>#{tag}</Tag>
+                            <Tag key={tag}># {tag}</Tag>
                           ))}
                         </Tags>
                         <Date>{post.node.frontmatter.date}</Date>
                       </BottomContainer>
                     </ContentContainer>
                   </ItemContainer>
-                  <Divider />
                 </Link>
-              ))
-            : '게시물이 없습니다 👻'}
-        </DiaryLayOut>
-      </PostList>
-    </Main>
+                <Divider />
+              </>
+            ))
+          : '게시물이 없습니다 👻'}
+      </DiaryLayOut>
+    </MainContainer>
   )
 }
 
