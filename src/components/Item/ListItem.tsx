@@ -16,10 +16,11 @@ const ThumbnailImage = styled(GatsbyImage)`
 const ItemContainer = styled.div`
   display: flex;
   flex-direction: row;
-  align-items: flex-start;
+  align-items: center;
   min-height: 180px;
   transition: background-color 0.3s ease-in-out;
 
+  margin-bottom: 20px;
   &:hover {
     background-color: #c5ccc82a; /* ✅ 연한 회색 배경 */
   }
