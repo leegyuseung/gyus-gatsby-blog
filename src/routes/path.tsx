@@ -4,4 +4,5 @@ export const Path = {
   diary: '/diary',
   project: '/project',
   about: '/about',
+  github: 'https://github.com/leegyuseung',
 }
