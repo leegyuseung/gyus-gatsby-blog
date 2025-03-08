@@ -58,7 +58,7 @@ const Header = () => {
   return (
     <HeaderLayout>
       <LogoWrapper>
-        <Logo width={'30px'} height={'30px'} radius={'20px'} />
+        <Logo width={'30px'} height={'30px'} radius={'20px'} path={Path.home} />
         <LogoSpan>{title}</LogoSpan>
       </LogoWrapper>
       <Nav>

@@ -1,4 +1,3 @@
-import { Path } from '../../routes/path'
 import { Link } from 'gatsby'
 import { StaticImage } from 'gatsby-plugin-image'
 
@@ -6,11 +5,12 @@ interface LogoProps {
   width: string
   height: string
   radius: string
+  path: string
 }
 
-const Logo = ({ width, height, radius }: LogoProps) => {
+const Logo = ({ width, height, radius, path }: LogoProps) => {
   return (
-    <Link to={Path.home}>
+    <Link to={path}>
       <StaticImage
         src="../../images/favicon1.png"
         alt="logo"
