@@ -1,5 +1,6 @@
 import styled from '@emotion/styled'
 import { Link } from 'gatsby'
+import { useLocation } from '@reach/router'
 
 interface NavItemProps {
   title: string
@@ -7,7 +8,7 @@ interface NavItemProps {
   path: string
 }
 
-const Item = styled.span<{ readonly?: boolean }>`
+const Item = styled.span<{ readonly?: boolean; choice: boolean }>`
   position: relative; /* 가상 요소의 기준점 */
   padding: 0px 16px;
   text-decoration-line: none;
@@ -44,6 +45,8 @@ const Item = styled.span<{ readonly?: boolean }>`
     user-select: none;
     color : gray;
   `}
+
+  ${({ choice }) => choice && `color : #e61d1d;`}
 `
 
 const Linked = styled(Link)<{ readonly?: boolean }>`
@@ -57,9 +60,18 @@ const Linked = styled(Link)<{ readonly?: boolean }>`
 `
 
 const NavItem = ({ title, readonly, path }: NavItemProps) => {
+  let location = useLocation()
+  let choice = false
+  choice =
+    location.pathname.replace(/\//g, '') == path.replace(/\//g, '')
+      ? true
+      : false
+
   return (
     <Linked to={path} readonly={readonly}>
-      <Item readonly={readonly}>{title}</Item>
+      <Item readonly={readonly} choice={choice}>
+        {title}
+      </Item>
     </Linked>
   )
 }
