@@ -49,7 +49,9 @@ const Item = styled.span<{ readonly?: boolean; choice: boolean }>`
   ${({ choice }) => choice && `color : #e61d1d;`}
 `
 
-const Linked = styled(Link)<{ readonly?: boolean }>`
+const Linked = styled(Link, {
+  shouldForwardProp: prop => prop !== 'readonly',
+})<{ readonly?: boolean }>`
   ${({ readonly }) =>
     readonly &&
     `

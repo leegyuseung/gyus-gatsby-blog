@@ -149,8 +149,8 @@ const MainLayout = ({ data }: MainPageProps) => {
       <SectionTitle># Recent Posts</SectionTitle>
       {techPosts.length > 0
         ? techPosts.slice(0, 3).map(post => (
-            <>
-              <TechLayOut>
+            <React.Fragment key={post.node.id}>
+              <TechLayOut key={post.node.id}>
                 <Link to={`/posts/${post.node.frontmatter.slug}`}>
                   <ItemContainer>
                     <ThumbnailImage
@@ -178,14 +178,14 @@ const MainLayout = ({ data }: MainPageProps) => {
                 </Link>
                 <Divider />
               </TechLayOut>
-            </>
+            </React.Fragment>
           ))
         : '게시물이 없습니다 👻'}
       {/* Diary Posts */}
       <DiaryLayOut>
         {diaryPosts.length > 0
           ? diaryPosts.slice(0, 3).map(post => (
-              <>
+              <React.Fragment key={post.node.id}>
                 <Link to={`/posts/${post.node.frontmatter.slug}`}>
                   <ItemContainer>
                     <ThumbnailImage
@@ -212,7 +212,7 @@ const MainLayout = ({ data }: MainPageProps) => {
                   </ItemContainer>
                 </Link>
                 <Divider />
-              </>
+              </React.Fragment>
             ))
           : '게시물이 없습니다 👻'}
       </DiaryLayOut>
