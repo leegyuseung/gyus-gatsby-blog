@@ -12,15 +12,17 @@ module.exports = {
     title: `Gyu's Blog`,
     description: `이규승의 블로그`,
     author: `Gyu's`,
-    // siteUrl: `https://gatsbystarterdefaultsource.gatsbyjs.io/`,
-    siteUrl: `https://gyu-seung.com/`,
+    siteUrl: `https://gyus-blog.netlify.app`,
+    thumbnail: `https://gyus-blog.netlify.app/thumbnail.webp`,
   },
   plugins: [
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-image`,
     'gatsby-plugin-emotion',
-    // 'gatsby-plugin-helmet',
+    'gatsby-plugin-react-helmet',
+    'gatsby-plugin-sitemap',
+    `gatsby-plugin-robots-txt`,
     {
       resolve: 'gatsby-plugin-typescript',
       options: {
@@ -74,6 +76,12 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
+        name: 'Gyu`s Blog',
+        short_name: '규승로그',
+        start_url: '/',
+        background_color: `#ffffff`,
+        theme_color: `#ff5733`,
+        display: `minimal-ui`,
         icon: `static/favicon1.png`,
       },
     },
@@ -83,6 +91,15 @@ module.exports = {
         defaultLayouts: {
           // default: require.resolve('./src/layout/BaseLayout.tsx'),
         },
+      },
+    },
+    {
+      resolve: `gatsby-plugin-offline`,
+      options: {
+        workboxConfig: {
+          globPatterns: ['**/*.{js,css,html,json,webp,png,jpg,svg}'],
+        },
+        precachePages: [`/`, `/about/*`, `/blog/*`], // 원하는 페이지를 캐싱할 수 있음
       },
     },
   ],
