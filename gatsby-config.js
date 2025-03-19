@@ -10,7 +10,7 @@
 module.exports = {
   siteMetadata: {
     title: `Gyu's Blog`,
-    description: `이규승의 블로그`,
+    description: `이규승의 블로그에 오신것을 환영합니다.`,
     author: `Gyu's`,
     siteUrl: `https://gyus-blog.netlify.app`,
     thumbnail: `https://gyus-blog.netlify.app/thumbnail.webp`,
@@ -91,6 +91,12 @@ module.exports = {
         defaultLayouts: {
           // default: require.resolve('./src/layout/BaseLayout.tsx'),
         },
+      },
+    },
+    {
+      resolve: `gatsby-plugin-robots-txt`,
+      options: {
+        policy: [{ userAgent: '*', allow: '/' }],
       },
     },
     {
