@@ -2,10 +2,12 @@ import { graphql } from 'gatsby'
 import { TechPageProps } from 'types/TechPage.types'
 import BaseLayout from '../../layout/BaseLayout'
 import TechListLayout from '../../layout/TechListLayout'
+import SEO from 'components/SEO'
 
 const TechPage = ({ data }: TechPageProps) => {
   return (
     <BaseLayout>
+      <SEO title="Tech" />
       <TechListLayout posts={data.allMdx} />
     </BaseLayout>
   )

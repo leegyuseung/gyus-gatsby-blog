@@ -3,10 +3,12 @@ import { DiaryPageProps } from 'types/DiaryPage.types'
 
 import BaseLayout from '../../layout/BaseLayout'
 import DiaryListLayout from '../../layout/DiaryListLayout'
+import SEO from 'components/SEO'
 
 const DiaryPage = ({ data }: DiaryPageProps) => {
   return (
     <BaseLayout>
+      <SEO title="Diary" />
       <DiaryListLayout posts={data.allMdx} />
     </BaseLayout>
   )

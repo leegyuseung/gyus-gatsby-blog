@@ -2,10 +2,12 @@ import { graphql } from 'gatsby'
 import { IndexPageProps } from 'types/IndexPage.types'
 import BaseLayout from '../layout/BaseLayout'
 import MainLayout from '../layout/MainLayout'
+import SEO from 'components/SEO'
 
 const IndexPage = ({ data }: IndexPageProps) => {
   return (
     <BaseLayout>
+      <SEO title="Home" />
       <MainLayout data={data} />
     </BaseLayout>
   )
