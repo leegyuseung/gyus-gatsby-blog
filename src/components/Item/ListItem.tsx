@@ -3,7 +3,7 @@ import styled from '@emotion/styled'
 import { GatsbyImage } from 'gatsby-plugin-image'
 import { Post } from 'types/ListLayout.types'
 import { Link } from 'gatsby'
-
+import { mediaQuery } from '../../theme/breakpoints'
 const ThumbnailImage = styled(GatsbyImage)`
   width: 200px;
   height: 150px;
@@ -11,18 +11,33 @@ const ThumbnailImage = styled(GatsbyImage)`
   border-radius: 8px;
   margin-right: 16px;
   flex-shrink: 0;
+
+  ${mediaQuery.sm} {
+    width: 100%;
+    height: 100%;
+    margin-right: 0;
+    margin-bottom: 5px;
+  }
 `
 
 const ItemContainer = styled.div`
   display: flex;
   flex-direction: row;
-  align-items: center;
   min-height: 180px;
   transition: background-color 0.3s ease-in-out;
-
+  align-items: center;
   margin-bottom: 20px;
+
   &:hover {
     background-color: #c5ccc82a; /* ✅ 연한 회색 배경 */
+  }
+
+  ${mediaQuery.sm} {
+    min-height: 120px;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 10px;
   }
 `
 
@@ -32,6 +47,11 @@ const ContentContainer = styled.div`
   flex-grow: 1;
   height: 100%;
   justify-content: space-between;
+
+  ${mediaQuery.sm} {
+    height: 100%;
+    width: 100%;
+  }
 `
 
 const Title = styled.h2`
@@ -44,6 +64,10 @@ const Title = styled.h2`
   overflow: hidden; /* 넘치는 텍스트 숨김 */
   text-overflow: ellipsis; /* 말줄임표(...) 적용 */
   word-break: break-word; /* 단어 단위로 줄 바꿈 */
+
+  ${mediaQuery.sm} {
+    font-size: 14px;
+  }
 `
 
 const Content = styled.p`
@@ -58,6 +82,12 @@ const Content = styled.p`
   text-overflow: ellipsis;
   height: 65px;
   max-height: 65px;
+
+  ${mediaQuery.sm} {
+    font-size: 10px;
+    height: 20px;
+    max-height: 30px;
+  }
 `
 
 const TopContainer = styled.div``
@@ -65,11 +95,19 @@ const TopContainer = styled.div``
 const BottomContainer = styled.div`
   display: flex;
   justify-content: space-between;
+
+  ${mediaQuery.sm} {
+    align-items: flex-end;
+  }
 `
 
 const Tags = styled.div`
   display: flex;
   gap: 8px;
+
+  ${mediaQuery.sm} {
+    gap: 5px;
+  }
 `
 
 const Tag = styled.span`
@@ -78,6 +116,11 @@ const Tag = styled.span`
   background-color: rgb(69, 65, 64);
   padding: 4px 8px;
   border-radius: 8px;
+
+  ${mediaQuery.sm} {
+    font-size: 10px;
+    padding: 3px 6px;
+  }
 `
 
 const Date = styled.span`
@@ -87,6 +130,10 @@ const Date = styled.span`
   margin-right: 10px;
   color: rgb(180, 180, 180);
   font-size: 13px;
+
+  ${mediaQuery.sm} {
+    font-size: 10px;
+  }
 `
 
 const Divider = styled.div`

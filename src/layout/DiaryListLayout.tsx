@@ -2,6 +2,7 @@ import React from 'react'
 import styled from '@emotion/styled'
 import ListItem from 'components/Item/ListItem'
 import { ListLayoutProps } from 'types/ListLayout.types'
+import { mediaQuery } from '../theme/breakpoints'
 
 const DiaryContainer = styled.div`
   display: flex;
@@ -9,6 +10,10 @@ const DiaryContainer = styled.div`
   gap: 20px;
   width: 100%;
   padding: 20px 0;
+
+  ${mediaQuery.sm} {
+    padding: 10px 0;
+  }
 `
 const SectionTitle = styled.h2`
   position: relative; /* 가상 요소 위치 기준 */
@@ -29,6 +34,10 @@ const SectionTitle = styled.h2`
     transform: scaleX(0); /* 처음에는 안 보이게 */
     transform-origin: left; /* 왼쪽에서 시작 */
     animation: underlineAppear 0.6s ease-in-out forwards;
+
+    ${mediaQuery.sm} {
+      width: 18%;
+    }
   }
 
   @keyframes underlineAppear {
@@ -38,6 +47,10 @@ const SectionTitle = styled.h2`
     to {
       transform: scaleX(1);
     }
+  }
+
+  ${mediaQuery.sm} {
+    font-size: 14px;
   }
 `
 

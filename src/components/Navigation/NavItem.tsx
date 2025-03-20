@@ -1,7 +1,7 @@
 import styled from '@emotion/styled'
 import { Link } from 'gatsby'
 import { useLocation } from '@reach/router'
-
+import { mediaQuery } from '../../theme/breakpoints'
 interface NavItemProps {
   title: string
   readonly: boolean
@@ -33,6 +33,10 @@ const Item = styled.span<{ readonly?: boolean; choice: boolean }>`
     transform: scaleX(0); /* 초기에는 안 보이게 */
     transform-origin: left; /* 왼쪽에서 시작 */
     transition: transform 0.3s ease-in-out;
+
+    ${mediaQuery.sm} {
+      width: 45%;
+    }
   }
 
   &:hover::after {
@@ -47,6 +51,11 @@ const Item = styled.span<{ readonly?: boolean; choice: boolean }>`
   `}
 
   ${({ choice }) => choice && `color : #e61d1d;`}
+
+  ${mediaQuery.sm} {
+    font-size: 10px;
+    padding: 0px 15px;
+  }
 `
 
 const Linked = styled(Link, {

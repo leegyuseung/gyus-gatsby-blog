@@ -3,6 +3,7 @@ import React from 'react'
 import { Link } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
 import { MainPageProps } from 'types/MainPage.types'
+import { mediaQuery } from '../theme/breakpoints'
 
 const SectionTitle = styled.h2`
   position: relative; /* 가상 요소 위치 기준 */
@@ -23,6 +24,10 @@ const SectionTitle = styled.h2`
     transform: scaleX(0); /* 처음에는 안 보이게 */
     transform-origin: left; /* 왼쪽에서 시작 */
     animation: underlineAppear 0.6s ease-in-out forwards;
+
+    ${mediaQuery.sm} {
+      width: 35%;
+    }
   }
 
   @keyframes underlineAppear {
@@ -33,6 +38,10 @@ const SectionTitle = styled.h2`
       transform: scaleX(1);
     }
   }
+
+  ${mediaQuery.sm} {
+    font-size: 14px;
+  }
 `
 
 const ContentContainer = styled.div`
@@ -41,6 +50,11 @@ const ContentContainer = styled.div`
   flex-grow: 1;
   height: 100%;
   justify-content: space-between;
+
+  ${mediaQuery.sm} {
+    height: 100%;
+    width: 100%;
+  }
 `
 
 const ThumbnailImage = styled(GatsbyImage)`
@@ -50,6 +64,13 @@ const ThumbnailImage = styled(GatsbyImage)`
   border-radius: 8px;
   margin-right: 16px;
   flex-shrink: 0;
+
+  ${mediaQuery.sm} {
+    width: 100%;
+    height: 100%;
+    margin-right: 0;
+    margin-bottom: 5px;
+  }
 `
 
 const ItemContainer = styled.div`
@@ -59,8 +80,17 @@ const ItemContainer = styled.div`
   transition: background-color 0.3s ease-in-out;
   align-items: center;
   margin-bottom: 20px;
+
   &:hover {
     background-color: #c5ccc82a; /* ✅ 연한 회색 배경 */
+  }
+
+  ${mediaQuery.sm} {
+    min-height: 120px;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 10px;
   }
 `
 
@@ -88,6 +118,10 @@ const Title = styled.h2`
   overflow: hidden; /* 넘치는 텍스트 숨김 */
   text-overflow: ellipsis; /* 말줄임표(...) 적용 */
   word-break: break-word; /* 단어 단위로 줄 바꿈 */
+
+  ${mediaQuery.sm} {
+    font-size: 14px;
+  }
 `
 const Content = styled.p`
   font-size: 13px;
@@ -101,6 +135,12 @@ const Content = styled.p`
   text-overflow: ellipsis;
   height: 65px;
   max-height: 65px;
+
+  ${mediaQuery.sm} {
+    font-size: 10px;
+    height: 20px;
+    max-height: 30px;
+  }
 `
 
 const TopContainer = styled.div``
@@ -108,6 +148,10 @@ const TopContainer = styled.div``
 const BottomContainer = styled.div`
   display: flex;
   justify-content: space-between;
+
+  ${mediaQuery.sm} {
+    align-items: flex-end;
+  }
 `
 
 const Date = styled.span`
@@ -117,11 +161,19 @@ const Date = styled.span`
   margin-right: 10px;
   color: rgb(180, 180, 180);
   font-size: 13px;
+
+  ${mediaQuery.sm} {
+    font-size: 10px;
+  }
 `
 
 const Tags = styled.div`
   display: flex;
   gap: 8px;
+
+  ${mediaQuery.sm} {
+    gap: 5px;
+  }
 `
 
 const Tag = styled.span`
@@ -130,6 +182,11 @@ const Tag = styled.span`
   background-color: rgb(69, 65, 64);
   padding: 4px 8px;
   border-radius: 8px;
+
+  ${mediaQuery.sm} {
+    font-size: 10px;
+    padding: 3px 6px;
+  }
 `
 
 const MainContainer = styled.div`
@@ -138,6 +195,10 @@ const MainContainer = styled.div`
   gap: 20px;
   width: 100%;
   padding: 20px 0;
+
+  ${mediaQuery.sm} {
+    padding: 10px 0;
+  }
 `
 
 const MainLayout = ({ data }: MainPageProps) => {
