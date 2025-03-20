@@ -1,8 +1,9 @@
-import { graphql, useStaticQuery } from 'gatsby'
-import { Path } from '../../routes/path'
 import styled from '@emotion/styled'
 import Logo from 'components/Common/Logo'
 import NavItem from './NavItem'
+import { graphql, useStaticQuery } from 'gatsby'
+import { Path } from '../../routes/path'
+import { mediaQuery } from '../../theme/breakpoints'
 
 const HeaderLayout = styled.header`
   position: fixed;
@@ -22,14 +23,19 @@ const HeaderLayout = styled.header`
   padding-left: 40px;
   padding-right: 40px;
   transition: all 0.5s ease;
-`
 
+  ${mediaQuery.sm} {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+`
 const Nav = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-end;
   flex-wrap: wrap; // 공간 부족 시 줄바꿈
 `
+
 const LogoWrapper = styled.div`
   display: flex;
   align-items: center;
@@ -38,6 +44,11 @@ const LogoWrapper = styled.div`
 const LogoSpan = styled.span`
   margin-left: 15px;
   font-size: 12px;
+
+  ${mediaQuery.sm} {
+    margin-left: 10px;
+    font-size: 10px;
+  }
 `
 
 const Header = () => {

@@ -1,5 +1,5 @@
 import styled from '@emotion/styled'
-
+import { mediaQuery } from '../theme/breakpoints'
 type FooterLayoutProps = {
   children: React.ReactNode
 }
@@ -17,6 +17,10 @@ const Footer = styled.footer`
   flex-direction: row;
   align-items: center;
   justify-content: left;
+
+  ${mediaQuery.sm} {
+    height: 10px;
+  }
 `
 
 const FooterLayout = ({ children }: FooterLayoutProps) => {

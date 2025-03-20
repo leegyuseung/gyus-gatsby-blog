@@ -9,9 +9,9 @@
  */
 module.exports = {
   siteMetadata: {
-    title: `Gyu's Blog`,
-    description: `이규승의 블로그에 오신것을 환영합니다.`,
-    author: `Gyu's`,
+    title: `규승의 블로그`,
+    description: `규승의 블로그에 오신것을 환영합니다.`,
+    author: `이규승`,
     siteUrl: `https://gyus-blog.netlify.app`,
     thumbnail: `https://gyus-blog.netlify.app/thumbnail.webp`,
   },
