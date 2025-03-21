@@ -76,7 +76,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: 'Gyu`s Blog',
+        name: '규승의 블로그',
         short_name: '규승로그',
         start_url: '/',
         background_color: `#ffffff`,

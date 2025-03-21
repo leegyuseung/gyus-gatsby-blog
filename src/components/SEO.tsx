@@ -44,7 +44,6 @@ const SEO: React.FC<SEOProps> = ({
       <meta property="og:description" content={metaDescription} />
       <meta property="og:image" content={metaImage} />
       <meta property="og:url" content={metaUrl} />
-      <meta name="twitter:card" content="summary_large_image" />
     </Helmet>
   )
 }
