@@ -14,8 +14,7 @@
 - Project 메뉴 (내가 만든 project 넣기)
 - About 메뉴 (나에 대하여 설명하기)
 - 깔끔한 css 레이아웃
-- 모바일 반응형 css
-
+  
 참고한 사이트
 <br/>
 https://devsoyoung.github.io/posts/gatsby-blog/
