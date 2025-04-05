@@ -17,7 +17,7 @@ export default IndexPage
 
 export const pageQuery = graphql`
   query {
-    techPosts: allMdx(
+    techPosts: allMarkdownRemark(
       filter: { frontmatter: { categories: { in: ["tech"] } } }
       sort: { frontmatter: { date: DESC } }
       limit: 5 # 최신 5개만 가져오기
@@ -45,7 +45,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    diaryPosts: allMdx(
+    diaryPosts: allMarkdownRemark(
       filter: { frontmatter: { categories: { in: ["diary"] } } }
       sort: { frontmatter: { date: DESC } }
       limit: 5 # 최신 5개만 가져오기

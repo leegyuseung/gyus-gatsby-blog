@@ -8,7 +8,7 @@ const TechPage = ({ data }: TechPageProps) => {
   return (
     <BaseLayout>
       <SEO title="Tech" />
-      <TechListLayout posts={data.allMdx} />
+      <TechListLayout posts={data.allMarkdownRemark} />
     </BaseLayout>
   )
 }
@@ -17,7 +17,7 @@ export default TechPage
 
 export const pageQuery = graphql`
   query {
-    allMdx(
+    allMarkdownRemark(
       filter: { frontmatter: { categories: { in: ["tech"] } } }
       sort: { frontmatter: { date: DESC } }
     ) {

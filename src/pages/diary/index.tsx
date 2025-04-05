@@ -9,14 +9,14 @@ const DiaryPage = ({ data }: DiaryPageProps) => {
   return (
     <BaseLayout>
       <SEO title="Diary" />
-      <DiaryListLayout posts={data.allMdx} />
+      <DiaryListLayout posts={data.allMarkdownRemark} />
     </BaseLayout>
   )
 }
 
 export const pageQuery = graphql`
   query {
-    allMdx(
+    allMarkdownRemark(
       filter: { frontmatter: { categories: { in: ["diary"] } } }
       sort: { frontmatter: { date: DESC } }
     ) {
