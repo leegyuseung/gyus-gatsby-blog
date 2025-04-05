@@ -58,8 +58,6 @@ module.exports = {
         name: `diary_image`,
       },
     },
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-transformer-remark`,
       options: {
@@ -68,6 +66,12 @@ module.exports = {
             resolve: `gatsby-remark-smartypants`,
             options: {
               classPrefix: `language-`,
+            },
+          },
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 800,
             },
           },
         ],
@@ -83,14 +87,6 @@ module.exports = {
         theme_color: `#ff5733`,
         display: `minimal-ui`,
         icon: `static/favicon1.png`,
-      },
-    },
-    {
-      resolve: `gatsby-plugin-mdx`,
-      options: {
-        defaultLayouts: {
-          // default: require.resolve('./src/layout/BaseLayout.tsx'),
-        },
       },
     },
     {

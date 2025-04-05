@@ -5,6 +5,7 @@ import React from 'react'
 import styled from '@emotion/styled'
 import PostLayout from '../layout/PostLayout'
 import Logo from '../components/Common/Logo'
+import SEO from 'components/SEO'
 
 const Title = styled.h1`
   font-size: 30px;
@@ -36,7 +37,7 @@ const Writer = styled.span`
 `
 
 const Content = styled.div`
-  font-size: 18px;
+  font-size: 14px;
   line-height: 1.6;
 `
 
@@ -47,12 +48,14 @@ const StyledGatsbyImage = styled(GatsbyImage)`
   margin: 20px 0;
 `
 
-const PostTemplate = ({ data }: PageProps<{ mdx: any }>) => {
-  const { frontmatter, body } = data.mdx
+export default function PostTemplate({ data }) {
+  const { frontmatter, html } = data.markdownRemark
   const image = getImage(frontmatter.thumbnail.childImageSharp.gatsbyImageData)
 
   return (
     <PostLayout>
+      <SEO title={frontmatter.title} />
+
       <TopContainer>
         <Title>{frontmatter.title}</Title>
         <ProfileWrapper>
@@ -64,16 +67,15 @@ const PostTemplate = ({ data }: PageProps<{ mdx: any }>) => {
         </ProfileWrapper>
       </TopContainer>
       {image && <StyledGatsbyImage image={image} alt={frontmatter.title} />}
-      <Content dangerouslySetInnerHTML={{ __html: body }} />
+      <Content dangerouslySetInnerHTML={{ __html: html }} />
     </PostLayout>
   )
 }
 
-export default PostTemplate
-
 export const query = graphql`
   query ($id: String!) {
-    mdx(id: { eq: $id }) {
+    markdownRemark(id: { eq: $id }) {
+      html
       frontmatter {
         title
         date
@@ -85,7 +87,6 @@ export const query = graphql`
           }
         }
       }
-      body
     }
   }
 `

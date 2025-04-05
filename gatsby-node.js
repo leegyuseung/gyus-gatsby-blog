@@ -4,6 +4,7 @@
  * See: https://www.gatsbyjs.com/docs/reference/config-files/gatsby-node/
  */
 const path = require('path')
+const { createFilePath } = require(`gatsby-source-filesystem`)
 
 /* Setup Import Alias */
 exports.onCreateWebpackConfig = ({ getConfig, actions }) => {
@@ -40,7 +41,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
   const result = await graphql(`
     query {
-      allMdx {
+      allMarkdownRemark {
         edges {
           node {
             id
@@ -57,17 +58,14 @@ exports.createPages = async ({ graphql, actions }) => {
     throw result.errors
   }
 
-  const PostTemplateComponent = path.resolve(
-    __dirname,
-    'src/templates/postTemplate.tsx',
-  )
+  const postTemplate = path.resolve('./src/templates/postTemplate.tsx')
 
   const posts = result.data
 
-  posts.allMdx.edges.forEach(({ node }) => {
+  posts.allMarkdownRemark.edges.forEach(({ node }) => {
     createPage({
       path: `/posts/${node.frontmatter.slug}`,
-      component: PostTemplateComponent,
+      component: postTemplate,
       context: {
         id: node.id,
       },
