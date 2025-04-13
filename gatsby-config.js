@@ -61,6 +61,9 @@ module.exports = {
     {
       resolve: `gatsby-transformer-remark`,
       options: {
+        commonmark: true,
+        pedantic: true,
+        gfm: true,
         plugins: [
           {
             resolve: `gatsby-remark-smartypants`,
@@ -71,7 +74,7 @@ module.exports = {
           {
             resolve: `gatsby-remark-images`,
             options: {
-              maxWidth: 800,
+              maxWidth: 200,
             },
           },
         ],

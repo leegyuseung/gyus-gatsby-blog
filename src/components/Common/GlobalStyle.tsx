@@ -29,6 +29,12 @@ const defaultStyle = css`
   a {
     text-decoration: none;
   }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 1rem;
+  }
 `
 
 const GlobalStyle: FunctionComponent = () => {
