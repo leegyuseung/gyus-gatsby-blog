@@ -12,25 +12,54 @@ writer: 'Gyus'
 
 개발하면서 필요한 사이트들을 모아서 정리해보려고 한다.  
 지속적으로 업데이트해야겠다.
-<br/> <br/>
+<br> <br>
 
-### 🔥 AI
-
----
-
-- ChatGpt : [ChatGpt AI](https://chatgpt.com/)
-- Cursor : [Cursor AI](https://www.cursor.com/)
-
-<br/> <br/>
-
-### 🔥 프론트엔드
+### 🤖 AI
 
 ---
 
-- TailwindCSS : [TailwindCSS](https://tailwindcss.com/)
-- MUI : [Material-UI](https://mui.com/)
-- Ant Design : [Ant Design](https://ant.design/)
-- React BootStrap : [React BootStrap](https://react-bootstrap.netlify.app/)
-- Radix UI : [Radix UI](https://www.radix-ui.com/)
-- Shadcn UI : [Shadcn UI](https://ui.shadcn.com/)
-- Chakra UI : [Chakra UI](https://chakra-ui.com/)
+⭐️ ChatGpt : [ChatGpt AI](https://chatgpt.com/) <br>
+⭐️ Cursor : [Cursor AI](https://www.cursor.com/) <br>
+
+<br>
+
+### 📱 프론트엔드
+
+---
+
+⭐️ TailwindCSS : [TailwindCSS](https://tailwindcss.com/) <br>
+⭐️ React BootStrap : [React BootStrap](https://react-bootstrap.netlify.app/) <br>
+⭐️ Ant Design : [Ant Design](https://ant.design/) <br>
+⭐️ MUI : [Material-UI](https://mui.com/) <br>
+⭐️ Radix UI : [Radix UI](https://www.radix-ui.com/) <br>
+⭐️ Shadcn UI : [Shadcn UI](https://ui.shadcn.com/) <br>
+⭐️ Chakra UI : [Chakra UI](https://chakra-ui.com/) <br>
+
+<br>
+
+⭐️ Tiptap editor : [Tiptap](https://tiptap.dev/) <br>
+⭐️ Portable Text editor : [portable](https://www.portabletext.org/) <br>
+⭐️ React Hot Toast : [react-hot-toast](https://react-hot-toast.com/) <br>
+⭐️ Lucide : [Lucide](https://lucide.dev/) <br>
+
+<br>
+
+⭐️ GSAP : [GSAP](https://gsap.com/) <br>
+⭐️ Motion : [motion](https://motion.dev/) <br>
+
+<br>
+
+⭐️ Stackflow : [Stackflow](https://stackflow.so/) <br>
+⭐️ Date-fns : [dateFns](https://date-fns.org/) <br>
+
+<br>
+
+⭐️ Framer : [Framer](https://www.framer.com/) <br>
+
+<br>
+
+### 💾 백엔드
+
+---
+
+⭐️ Sanity : [sanity](https://www.sanity.io/) <br>
