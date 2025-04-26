@@ -65,6 +65,11 @@ module.exports = {
         pedantic: true,
         gfm: true,
         plugins: [
+          'gatsby-remark-code-buttons',
+          {
+            resolve: `gatsby-remark-prismjs`,
+            options: {},
+          },
           {
             resolve: `gatsby-remark-smartypants`,
             options: {
