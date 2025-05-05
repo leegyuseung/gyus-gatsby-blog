@@ -41,6 +41,7 @@ writer: 'Gyus'
 📱 Portable Text editor : [portable](https://www.portabletext.org/) <br>
 📱 React Hot Toast : [react-hot-toast](https://react-hot-toast.com/) <br>
 📱 Lucide : [Lucide](https://lucide.dev/) <br>
+📱 HeroIcons : [HeroIcons](https://heroicons.com/) <br>
 
 <br>
 
