@@ -57,7 +57,7 @@ writer: 'Gyus'
 
 📱 Framer : [Framer](https://www.framer.com/) <br>
 📲 Spline : [Spline](https://spline.design/) <br>
-
+📲 Freepik : [freepik](https://www.freepik.com/) <br>
 <br>
 
 ### 💾 백엔드
