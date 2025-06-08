@@ -47,11 +47,15 @@ writer: 'Gyus'
 
 📱 GSAP : [GSAP](https://gsap.com/) <br>
 📱 Motion : [motion](https://motion.dev/) <br>
+📱 MagicUI : [magic](https://magicui.design/) <br>
+📱 21st : [21st](https://21st.dev/) <br>
+📱 aceternity : [21st](https://ui.aceternity.com/) <br>
 
 <br>
 
 📱 Stackflow : [Stackflow](https://stackflow.so/) <br>
 📱 Date-fns : [dateFns](https://date-fns.org/) <br>
+📱 onesignal(push) : [onesignal](https://onesignal.com/) <br>
 
 <br>
 
