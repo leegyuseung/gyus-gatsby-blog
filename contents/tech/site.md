@@ -56,12 +56,15 @@ writer: 'Gyus'
 📱 Stackflow : [Stackflow](https://stackflow.so/) <br>
 📱 Date-fns : [dateFns](https://date-fns.org/) <br>
 📱 onesignal(push) : [onesignal](https://onesignal.com/) <br>
+📱 uuid : [uuid](https://www.npmjs.com/package/uuid) <br>
+📱 nanoid: [onesignal](https://www.npmjs.com/package/nanoid) <br>
 
 <br>
 
 📱 Framer : [Framer](https://www.framer.com/) <br>
 📲 Spline : [Spline](https://spline.design/) <br>
 📲 Freepik : [freepik](https://www.freepik.com/) <br>
+
 <br>
 
 ### 💾 백엔드
